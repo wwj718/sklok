@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Introduction</title>
+<link href="/static/skl/style/Introduction.css" rel="stylesheet" type="text/css" />
+<link href="/static/skl/style/reset.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/static/skl/JavaScript/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="/static/skl/JavaScript/nav.js"></script>
+</head>
+
+<body>
+	<div class="content">
+		<div class="head">
+        	<p>
+            	<a href="#">NCEPU Home</a>
+                <i></i>
+                <a href="#">Chinese</a>
+            </p>   
+                     
+    {% include "includes/wwj_search.html" %}
+        
+        </div><!--head结束-->
+        
+<!--nav-->
+    {% include "includes/wwj_nav.html" %}
+<!--nav结束-->
+        
+        <img class="openflow" src="/static/skl/img/Open flow.jpg">
+        
+        <div class="cascade">
+        	<p><a href="/">Home</a><span> > Introduction</span></p>
+        </div>
+        
+        <div class="side">
+        	<img src="/static/skl/img/Introduction.jpg" />
+        </div>
+        
+        <div class="text">
+            {% load mezzanine_tags %}
+        	<p id="tile">
+              {% editable page.richtextpage.title %}
+              {{ page.richtextpage.title|richtext_filters|safe }}
+              {% endeditable %}
+
+            </p>
+            {% editable page.richtextpage.content %}
+            {{ page.richtextpage.content|richtext_filters|safe }}
+            {% endeditable %}
+        </div>
+        
+                    	
+    </div><!--content结束-->
+    <div class="copyright">
+    	<p>Copyright 2013 State Key Laboratory Of Alternate Electrical Power System WithRenewable Energy Sources（NCEPU） All Rights Reserved.<br/>
+        <p>Technical Support:Dreamtech Studio</p>
+    </div>    
+
+{% if user.is_staff %}
+    <script src="{{ STATIC_URL }}mezzanine/js/jquery-1.7.1.min.js">
+        jQuery.noConflict();
+    </script>
+{% endif %}
+{% editable_loader %}  
+</body>
+</html>

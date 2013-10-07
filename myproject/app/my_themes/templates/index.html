@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Home</title>
+<link href="/static/skl/style/home.css" rel="stylesheet" type="text/css" />
+<link href="/static/skl/style/reset.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/static/skl/JavaScript/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="/static/skl/JavaScript/home.js"></script>
+</head>
+
+<body>
+	<div class="content">
+		<div class="head">
+        	<p>
+            	<a href="#">NCEPU Home</a>
+                <i></i>
+                <a href="#">Chinese</a>
+            </p>            
+
+    {% include "includes/wwj_search.html" %}
+
+        </div><!--head结束-->
+        
+<!--nav-->
+    {% include "includes/wwj_nav.html" %}
+<!--nav结束-->
+        
+        <div class="pictures">
+        	<img src="img/teacher1.jpg" /><!--这张图片要和class="picture1"的一样-->
+        	<img class="picture4" src="/static/skl/img/teacher4.jpg" />
+        	<img class="picture3" src="/static/skl/img/teacher3.jpg" />
+        	<img class="picture2" src="/static/skl/img/teacher2.jpg" />
+        	<img class="picture1" src="/static/skl/img/teacher1.jpg" />
+        	
+            
+            
+            
+            
+        </div>
+        <div class="multiplesources">
+        	<img src="/static/skl/img/multiplesources.jpg" />
+        </div>
+        
+        <div class="laboratory">
+        	<img src="/static/skl/img/circle.png" />
+            <p>A BRIEF INTRODUCTION TO THE STATE KEY LABORATORY OF ALTERNATE ELECTRICAL POWER SYSTEM WITH RENEWABLE ENERGY SOURCES</p>
+            <a href="#">READ >></a>
+        </div><!--"laboratory"结束-->
+        <div class="announcement">
+        	<p><span>S</span>KL's hemostasis findings patented by European Patent Office, Japan Patent Office and China Patent Office.</p>
+            <p><span>H</span>KU finds increasing Y-type retinal ganglion cells activities induced by light can help improving depression symptoms</p>
+        </div><!--announcement结束-->
+                    	
+    </div><!--content结束-->
+    <div class="copyright">
+    	<p>Copyright 2013 State Key Laboratory Of Alternate Electrical Power System WithRenewable Energy Sources（NCEPU） All Rights Reserved.<br/>
+        <p>Technical Support:Dreamtech Studio</p>
+    </div>    
+</body>
+</html>

@@ -1,0 +1,49 @@
+<div class="nav">
+        	<ul>
+            	<li id="home">
+                	<a href="/">Home</a> <!--也用后台page-->
+                </li>
+                <i></i>
+                <li id="introduction"><!--这个是page 页面url由后台决定 就是introduction-->
+                	<a href="/introduction">Introduction</a>
+                </li><i></i>
+                <li id="people">
+                	<a href="/people">People</a>
+                    <ul class="people">
+            			<li><a href="/people/categories/A">Academic committee</a></li>
+                		<li><a href="/people/categories/L">LAB Directors</a></li>
+                		<li><a href="/people/categories/M">Member</a></li>
+            		</ul>
+                </li><i></i>
+                <li id="research">
+                	<a href="/newsevents/search/?title=ncepu">Research</a>
+                    <ul class="research">
+            			<li><a href="/newsevents/search/?title=ncepu">Research Areas</a></li>
+            		</ul>
+                </li><i></i>
+                <li id="publications">
+                	<a href="/publications">Publications</a>
+                </li><i></i>
+                <li id="newsevents">
+                	<a href="/newsevents/categories/news/">News&Events </a>
+                    <ul class="newsevents">
+            			<li><a href="/newsevents/categories/news/">News</a></li>
+                        <li><a href="/newsevents/categories/events/">Events</a></li>
+            		</ul>
+                </li><i></i>
+                <li id="facilities">
+                	<a href="/facilities">Facilities</a>
+                    <ul class="facilities">
+
+                    {% for item in categories_list %}
+                    <li><a href="/facilities/categories/{{item.name}}"><span>{{item.name}}</span></li>
+
+                    {% endfor %}
+                    
+            		</ul>
+                </li><i></i>
+                <li id="contact">
+                	<a href="/contactus">Contact us</a>
+                </li>
+            </ul>          
+        </div><!--nav结束-->

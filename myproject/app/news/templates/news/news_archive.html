@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>News&Events </title>
+<link href="/static/skl/style/news&events.css" rel="stylesheet" type="text/css" />
+<link href="/static/skl/style/reset.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/static/skl/JavaScript/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="/static/skl/JavaScript/newsevents.js"></script>
+</head>
+
+<body>
+{% load pagination_tags %}
+{% autopaginate news 20 %}
+
+	<div class="content">
+		<div class="head">
+        	<p>
+            	<a href="#">NCEPU Home</a>
+                <i></i>
+                <a href="#">Chinese</a>
+            </p> 
+
+    {% include "includes/wwj_search.html" %}
+
+
+        </div><!--head结束-->
+        
+<!--nav-->
+    {% include "includes/wwj_nav.html" %}
+<!--nav结束-->
+
+        <img class="openflow" src="/static/skl/img/Open flow.jpg">
+        
+        
+        <div class="cascade">
+        	<p><a href="/">Home</a><a href="#"><span> > </span><a href="/newsevents/categories/news/">News&Events </a><span> >
+                {% ifequal category 'E' %}Events{%else%}News{% endifequal %}
+            </span></p>
+        </div>
+        
+        
+        
+        <div class="side">
+        	<img src="/static/skl/img/News&Events.jpg" />
+            <a href="/newsevents/categories/news/"><span>News</span>{% ifequal category 'N' %}<img src="/static/skl/img/arrowtip.jpg" />{% endifequal %}
+            </a>
+            <a href="/newsevents/categories/events/"><span>Events</span>{% ifequal category 'E' %}<img src="/static/skl/img/arrowtip.jpg" />{% endifequal %}
+            </a>
+        </div>
+        
+            {% for year in date_list %}
+                    <div class="news">
+                        <p id="title">{{year|date:'Y'}}</p>  
+                {% for new in news %}
+                {% ifequal year|date:'Y' new.pub_date|date:'Y' %}
+
+                        <p>{{new.pub_date|date:'Y.m.d'}}<span><a href="{{new.id}}">{{new.title}}</a></span></p>
+                        
+                    
+
+                {% endifequal %}
+
+                {% endfor %}
+                    </div>
+            {% endfor %}
+        <div class="news" style="border-bottom:0;">    
+            {% paginate %}
+        </div>       
+                    	
+    </div><!--content结束-->
+    <div class="copyright">
+    	<p>Copyright 2013 State Key Laboratory Of Alternate Electrical Power System WithRenewable Energy Sources（NCEPU） All Rights Reserved.<br/>
+        <p>Technical Support:Dreamtech Studio</p>
+    </div>    
+</body>
+</html>

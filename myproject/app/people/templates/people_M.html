@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>people</title>
+<link href="/static/skl/style/people.css" rel="stylesheet" type="text/css" />
+<link href="/static/skl/style/reset.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/static/skl/JavaScript/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="/static/skl/JavaScript/people.js"></script>
+</head>
+
+<body>
+
+{% load pagination_tags %}
+{% autopaginate list_items 12 %}
+
+
+	<div class="content">
+		<div class="head">
+        	<p>
+            	<a href="#">NCEPU Home</a>
+                <i></i>
+                <a href="#">Chinese</a>
+            </p>   
+                     
+    {% include "includes/wwj_search.html" %}
+         
+        </div><!--head结束-->
+<!--nav-->
+    {% include "includes/wwj_nav.html" %}
+<!--nav结束-->
+        
+        <img class="openflow" src="/static/skl/img/Open flow.jpg">
+        
+        
+        <div class="cascade">
+        	<p><a href="/">Home</a><a href="#"><span> > </span><a href="/people/">People</a><span> > 
+            {% ifequal categories "A" %}Academic committee{%endifequal%}
+            {% ifequal categories "L" %}LAB Directors{%endifequal%}
+            {% ifequal categories "M" %}Members{%endifequal%}
+
+            </span></p>
+        </div>
+        
+        
+        
+        <div class="side">
+        	<img src="/static/skl/img/People.jpg" />
+
+            <a href="/people/categories/A"><span>Academic committee</span>
+            {% ifequal categories "A" %}<img src="/static/skl/img/arrowtip.jpg" />{%endifequal%}
+            </a>
+
+            <a href="/people/categories/L"><span>LAB Directors</span>
+            {% ifequal categories "L" %}<img src="/static/skl/img/arrowtip.jpg" />{%endifequal%}
+            </a>
+            <a href="/people/categories/M"><span>Members</span>
+                {% ifequal categories "M" %}<img src="/static/skl/img/arrowtip.jpg" />{%endifequal%}
+            </a>
+        </div>
+        
+        
+        
+        <div class="committee">
+        	<p>Academic committee</p>
+            {% load mezzanine_tags %}
+            
+<!--base-->
+<!--根据id不同决定类不同-->
+        {% for item in list_items %}
+            
+            <div id="wwj_people">
+                
+           
+                <img src="/static/media/{{item.img}}" style="max-width:81px;"  />
+              {% editable item.content %}
+              {{ item.content|richtext_filters|safe }}
+              {% endeditable %}
+            </div>
+        {% endfor  %}
+<!--end base-->
+
+
+        <ul class="pager" style="clear:both">    
+            {% paginate %}
+        </ul>
+            
+        </div>
+        
+                    	
+    </div><!--content结束-->
+    <div class="copyright">
+    	<p>Copyright 2013 State Key Laboratory Of Alternate Electrical Power System WithRenewable Energy Sources（NCEPU） All Rights Reserved.<br/>
+        <p>Technical Support:Dreamtech Studio</p>
+    </div>  
+
+{% if user.is_staff %}
+    <script src="{{ STATIC_URL }}mezzanine/js/jquery-1.7.1.min.js">
+        jQuery.noConflict();
+    </script>
+{% endif %}
+{% editable_loader %}    
+</body>
+</html>

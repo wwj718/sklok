@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Publications</title>
+<link href="/static/skl/style/publications.css" rel="stylesheet" type="text/css" />
+<link href="/static/skl/style/reset.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/static/skl/JavaScript/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="/static/skl/JavaScript/nav.js"></script>
+</head>
+
+<body>
+
+{% load pagination_tags %}
+{% autopaginate list_items 17 %}
+
+	<div class="content">
+		<div class="head">
+        	<p>
+            	<a href="#">NCEPU Home</a>
+                <i></i>
+                <a href="#">Chinese</a>
+            </p>  
+                      
+    {% include "includes/wwj_search.html" %}
+           
+        </div><!--head结束-->
+        
+<!--nav-->
+    {% include "includes/wwj_nav.html" %}
+<!--nav结束-->
+        
+        <img class="openflow" src="/static/skl/img/Open flow.jpg">
+        
+        <div class="cascade">
+        	<p><a href="/">Home</a><span> > Publications</span></p>
+        </div>
+        
+        <div class="side">
+        	<img src="/static/skl/img/Publications.jpg" />
+        </div>
+        
+        <div class="table">
+        	<p>Publications</p>
+            
+          
+            <table>
+				<tr>
+  					<td class="no">No.</td>
+  					<td class="name">Name</td>
+  					<td class="editor">Editor</td>
+  					<td class="press">Press</td>
+  					<td class="date">Date</td>
+				</tr>
+			       </table>
+          
+<!--基本单位-->
+    {% for item in list_items %}
+
+            <table>
+				<tr>
+  					<td class="no">{{item.id}}</td>
+  	       {% if item.url %}<td class="name"><a href="{{item.url}}">{{item.name}}</a></td>
+            {% else %}<td class="name">{{item.name}}</td>
+            {% endif %}
+  					<td class="editor">{{item.editor}}</td>
+  					<td class="press">{{item.press}}</td>
+  					<td class="date">{{item.pub_date|date:'Y-m-d'}}</td>
+				</tr>
+			</table>
+    {% endfor %}
+
+<!--end 基本单位-->
+
+
+            
+        <ul class="pager" style="clear:both;margin-top:30px">    
+            {% paginate %}
+        </ul>  
+        	
+        </div>
+        
+                    	
+    </div><!--content结束-->
+    <div class="copyright">
+    	<p>Copyright 2013 State Key Laboratory Of Alternate Electrical Power System WithRenewable Energy Sources（NCEPU） All Rights Reserved.<br/>
+        <p>Technical Support:Dreamtech Studio</p>
+    </div>    
+</body>
+</html>
