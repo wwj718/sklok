@@ -71,7 +71,7 @@
 
             <div id="wwj_people">
                
-            	<img  src="/static/media/{{item.img}}" style="max-width:81px;"  />
+            	<img  src="{{ MEDIA_URL }}{% thumbnail item.img 81 111 %}" style="max-width:81px;"  />
               {% editable item.content %}
               {{ item.content|richtext_filters|safe }}
               {% endeditable %}

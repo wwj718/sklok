@@ -25,14 +25,14 @@
 <!--nav-->
     {% include "includes/wwj_nav.html" %}
 <!--nav结束-->
-        
+{% load mezzanine_tags staticfiles %}
+
         <div class="pictures">
-            
-        	{% if home.img1 %}<img src="/static/media/{{home.img1}}" />{% endif %}<!--这张图片要和class="picture1"的一样-->
-        	{% if home.img4 %}<img class="picture4" src="/static/media/{{home.img4}}" />{% endif %}
-        	{% if home.img3 %}<img class="picture3" src="/static/media/{{home.img3}}" />{% endif %}
-        	{% if home.img2 %}<img class="picture2" src="/static/media/{{home.img2}}" />{% endif %}
-        	{% if home.img1 %}<img class="picture1" src="/static/media/{{home.img1}}" />{% endif %}
+        	{% if home.img1 %}<img src="{{ MEDIA_URL }}{% thumbnail home.img1 686 268 %}" />{% endif %}<!--这张图片要和class="picture1"的一样-->
+        	{% if home.img4 %}<img class="picture4" src="{{ MEDIA_URL }}{% thumbnail home.img4 686 268 %}" />{% endif %}
+        	{% if home.img3 %}<img class="picture3" src="{{ MEDIA_URL }}{% thumbnail home.img3 686 268 %}" />{% endif %}
+        	{% if home.img2 %}<img class="picture2" src="/{{ MEDIA_URL }}{% thumbnail home.img2 686 268 %}" />{% endif %}
+        	{% if home.img1 %}<img class="picture1" src="{{ MEDIA_URL }}{% thumbnail home.img1 686 268 %}" />{% endif %}
         	
             
             
