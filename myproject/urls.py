@@ -26,6 +26,7 @@ urlpatterns = patterns("",
     ("^people/", include('app.people.urls')),
     #("^news/", include('app.news.urls')),
     ("^newsevents/", include('app.news.urls')),
+    ("^research/", include('app.research.urls')),
 
 
     # We don't want to presume how your homepage works, so here are a

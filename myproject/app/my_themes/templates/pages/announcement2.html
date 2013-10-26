@@ -2,12 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Introduction</title>
-<link href="/static/skl/style/Introduction.css" rel="stylesheet" type="text/css" />
+<title>Announcement</title>
+
 <link href="/static/skl/style/reset.css" rel="stylesheet" type="text/css" />
+<link href="/static/skl/style/announcement.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="/static/skl/JavaScript/jquery-1.10.1.min.js"></script>
 <script type="text/javascript" src="/static/skl/JavaScript/nav.js"></script>
 <script type="text/javascript" src="/static/skl/JavaScript/home.js"></script>
+<script type="text/javascript" src="/static/skl/JavaScript/announcement.js"></script>
+
 
 </head>
 
@@ -17,16 +20,16 @@
         	<p>
                 <a href="http://202.204.74.139/">Chinese</a>
 
-            </p>   
-                     
+            </p>            
+
     {% include "includes/wwj_search.html" %}
-        
+          
         </div><!--head结束-->
         
 <!--nav-->
     {% include "includes/wwj_nav.html" %}
 <!--nav结束-->
-        
+  
 <!--slides-->
         <div class="pictures">
           <img  src="/static/skl/img/banner/banner_01.png"><!--这张图片要和class="picture1"的一样-->
@@ -35,33 +38,41 @@
           <img class="picture1"  src="/static/skl/img/banner/banner_01.png">
         </div>
 <!--end slides-->         
+        
+
+
         <div class="cascade">
-        	<p><a href="/">Home</a><span> > Introduction</span></p>
+        	<p><a href="/">Home</a><span> > Announcement2</span></p>
         </div>
         
+        
+        
+    <div class="side_wrap">
         <div class="side">
-        	<img src="/static/skl/img/Introduction.jpg" />
+
         </div>
         
         <div class="text">
             {% load mezzanine_tags %}
-        	<p id="tile">
+        	<p id="title"> 
               {% editable page.richtextpage.title %}
               {{ page.richtextpage.title|richtext_filters|safe }}
               {% endeditable %}
-
             </p>
+
             {% editable page.richtextpage.content %}
             {{ page.richtextpage.content|richtext_filters|safe }}
             {% endeditable %}
+
         </div>
-        
-                    	
+    </div>
+
+
     </div><!--content结束-->
     <div class="copyright">
     	<p>Copyright 2013 State Key Laboratory Of Alternate Electrical Power System WithRenewable Energy Sources（NCEPU） All Rights Reserved.<br/>
         <p>Technical Support:Dreamtech Studio</p>
-    </div>    
+    </div> 
 
 {% if user.is_staff %}
     <script src="{{ STATIC_URL }}mezzanine/js/jquery-1.7.1.min.js">

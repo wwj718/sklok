@@ -7,6 +7,8 @@
 <link href="/static/skl/style/reset.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="/static/skl/JavaScript/jquery-1.10.1.min.js"></script>
 <script type="text/javascript" src="/static/skl/JavaScript/people.js"></script>
+<script type="text/javascript" src="/static/skl/JavaScript/home.js"></script>
+
 </head>
 
 <body>
@@ -18,9 +20,8 @@
 	<div class="content">
 		<div class="head">
         	<p>
-            	<a href="#">NCEPU Home</a>
-                <i></i>
-                <a href="#">Chinese</a>
+                <a href="http://202.204.74.139/">Chinese</a>
+
             </p>   
                      
     {% include "includes/wwj_search.html" %}
@@ -30,11 +31,17 @@
     {% include "includes/wwj_nav.html" %}
 <!--nav结束-->
         
-        <img class="openflow" src="/static/skl/img/Open flow.jpg">
-        
+<!--slides-->
+        <div class="pictures">
+          <img  src="/static/skl/img/banner/banner_01.png"><!--这张图片要和class="picture1"的一样-->
+          <img class="picture3"  src="/static/skl/img/banner/banner_03.png">
+          <img class="picture2"  src="/static/skl/img/banner/banner_02.png">
+          <img class="picture1"  src="/static/skl/img/banner/banner_01.png">
+        </div>
+<!--end slides-->        
         
         <div class="cascade">
-        	<p><a href="/">Home</a><a href="#"><span> > </span><a href="/people/">People</a><span> > 
+        	<p><a href="/">Home</a><a href="#"><span> > </span><a href="/people/categories/A">People</a><span> > 
             {% ifequal categories "A" %}Academic committee{%endifequal%}
             {% ifequal categories "L" %}LAB Directors{%endifequal%}
             {% ifequal categories "M" %}Members{%endifequal%}
@@ -69,9 +76,18 @@
 <!--根据id不同决定类不同-->
         {% for item in list_items %}
 
-            <div id="wwj_people">
-               
-            	<img  src="{{ MEDIA_URL }}{% thumbnail item.img 81 111 %}" style="max-width:81px;"  />
+        {% ifequal forloop.counter 1 %}<div id="director">
+        {% else %}
+        {% ifequal forloop.counter 2 %}<div id="deputy">
+        {% else %}<div id="wwj_people">
+        {% endifequal %}
+        {% endifequal %}
+        
+                {% if item.img %}        
+                <img id="wwj_people" src="{{ MEDIA_URL }}{% thumbnail item.img 81 111 %}" style="max-width:81px;"  />
+                {%else%}<img id="wwj_people" src="/static/skl/img/people/default.jpg" style="max-width:81px;"  />
+                {%endif%}
+
               {% editable item.content %}
               {{ item.content|richtext_filters|safe }}
               {% endeditable %}

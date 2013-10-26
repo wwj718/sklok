@@ -260,6 +260,7 @@ INSTALLED_APPS = (
     'app.people',
     'app.news',
     'app.home',
+    'app.research',
 
 )
 

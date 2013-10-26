@@ -13,3 +13,4 @@ class People(RichText):
 	#content = models.CharField(max_length=100,null=True)
 	img = models.FileField(upload_to="Facilities", blank=True, help_text="81*111pix")
 	pub_date = models.DateTimeField(auto_now_add=True,blank=True,null=True)
+	extra  = models.IntegerField(blank=True,null=True,default=0)

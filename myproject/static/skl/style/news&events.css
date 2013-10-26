@@ -59,6 +59,7 @@
 	border:hidden;
 	background:url(../img/magnifier.jpg) no-repeat;	
 }
+/*
 .nav{
 	position:relative;
 }
@@ -114,6 +115,7 @@
 	color:#0083a9;
 	font-weight:bold;
 }
+*/
 .people{
 	left:221px;
 	width:250px;
@@ -151,7 +153,7 @@
 }
 #newsevents{
 	width:97px;
-	font-weight:bold;
+	/*font-weight:bold;*/
 }
 #newsevents a{
 	color:#0083a9;

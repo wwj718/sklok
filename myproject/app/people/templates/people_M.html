@@ -7,20 +7,21 @@
 <link href="/static/skl/style/reset.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="/static/skl/JavaScript/jquery-1.10.1.min.js"></script>
 <script type="text/javascript" src="/static/skl/JavaScript/people.js"></script>
+<script type="text/javascript" src="/static/skl/JavaScript/home.js"></script>
+
 </head>
 
 <body>
 
 {% load pagination_tags %}
-{% autopaginate list_items 12 %}
+{% autopaginate list_items 8 %}
 
 
 	<div class="content">
 		<div class="head">
         	<p>
-            	<a href="#">NCEPU Home</a>
-                <i></i>
-                <a href="#">Chinese</a>
+                <a href="http://202.204.74.139/">Chinese</a>
+
             </p>   
                      
     {% include "includes/wwj_search.html" %}
@@ -30,11 +31,17 @@
     {% include "includes/wwj_nav.html" %}
 <!--nav结束-->
         
-        <img class="openflow" src="/static/skl/img/Open flow.jpg">
-        
+<!--slides-->
+        <div class="pictures">
+          <img  src="/static/skl/img/banner/banner_01.png"><!--这张图片要和class="picture1"的一样-->
+          <img class="picture3"  src="/static/skl/img/banner/banner_03.png">
+          <img class="picture2"  src="/static/skl/img/banner/banner_02.png">
+          <img class="picture1"  src="/static/skl/img/banner/banner_01.png">
+        </div>
+<!--end slides-->        
         
         <div class="cascade">
-        	<p><a href="/">Home</a><a href="#"><span> > </span><a href="/people/">People</a><span> > 
+        	<p><a href="/">Home</a><a href="#"><span> > </span><a href="/people/categories/A">People</a><span> > 
             {% ifequal categories "A" %}Academic committee{%endifequal%}
             {% ifequal categories "L" %}LAB Directors{%endifequal%}
             {% ifequal categories "M" %}Members{%endifequal%}
@@ -62,23 +69,78 @@
         
         
         <div class="committee">
-        	<p>Academic committee</p>
+        	<p>Members</p>
             {% load mezzanine_tags %}
             
 <!--base-->
 <!--根据id不同决定类不同-->
         {% for item in list_items %}
-            
-            <div id="wwj_people">
-                
-           
-                <img src="{{ MEDIA_URL }}{% thumbnail item.img 81 111 %}" style="max-width:81px;"  />
+
+{% ifequal item.extra 1 %}<h2 class="people_group">POWER GENERATION PROCESS MONITORING AND 
+OPTIMIZATION CONTROL RESEARCH GROUP</h2>{%endifequal%}
+{% ifequal item.extra 2 %}<h2 class="people_group">ADVANCED POWER DELIVERY TECHNOLOGY AND 
+ITS ELECTROMAGNETIC FUNDAMENT RESEARCH GROUP</h2>{%endifequal%}
+{% ifequal item.extra 3 %}<h2 class="people_group">ELECTRIC POWER CONVERSION AND POWER 
+QUALITY ASSURANCE RESEARCH GROUP</h2>{%endifequal%}
+{% ifequal item.extra 4 %}<h2 class="people_group">HIGH VOLTAGE INSULATION TECHNOLOGY 
+RESEARCH GROUP</h2>{%endifequal%}
+{% ifequal item.extra 5 %}<h2 class="people_group">POWER SYSTEM PROTECTION AND CONTROL 
+RESEARCH GROUP</h2>{%endifequal%}
+{% ifequal item.extra 6 %}<h2 class="people_group">CHARACTERICS OF THE ALTERNATE ELECTRIC POWER 
+GENERATION PROCESS AND ITS MODELING  RESEARCH GROUP
+</h2>{%endifequal%}
+{% ifequal item.extra 7 %}<h2 class="people_group">POWER SYSTEM DYNAMIC 
+SIMULATION RESEARCH GROUP</h2>{%endifequal%}
+
+        <a href="/people/categories/M/{{item.id}}">
+        {% ifequal item.extra 1 %}<div id="director">
+        {% else %}
+        {% ifequal item.extra 2 %}<div id="director">
+        {% else %}
+        {% ifequal item.extra 3 %}<div id="director">
+        {% else %}
+        {% ifequal item.extra 4 %}<div id="director">
+        {% else %}
+        {% ifequal item.extra 5 %}<div id="director">
+        {% else %}
+        {% ifequal item.extra 6 %}<div id="director">
+        {% else %}
+        {% ifequal item.extra 7 %}<div id="director">
+        {% else %}<div id="wwj_people">
+        {% endifequal %} 
+        {% endifequal %}
+        {% endifequal %}
+        {% endifequal %}
+        {% endifequal %}
+        {% endifequal %}       
+        {% endifequal %}
+
+                {% if item.img %}        
+                <img id="wwj_people" src="{{ MEDIA_URL }}{% thumbnail item.img 81 111 %}" style="max-width:81px;"  />
+                {%else%}<img id="wwj_people" src="/static/skl/img/people/default.jpg" style="max-width:81px;"  />
+                {%endif%}
+
               {% editable item.content %}
-              {{ item.content|richtext_filters|safe }}
+              {{ item.content|richtext_filters|safe|slice:"100" }}......
               {% endeditable %}
             </div>
+        </a>
+
+{% ifequal item.extra 10 %}<h3 class="people_group_end">members:Changliang Liu     、  Xiangjie Liu   、Shi Liu  、  Kehe Wu  、 Yong Yan    、       JianhuaZhang(F)Wen Tan        、     Zongde Liu      、      Xiaoze Du     、    Yongping Yang      、   Hong XuYujiongGu</h3>{%endifequal%}
+{% ifequal item.extra 20 %}<h3 class="people_group_end">members:Yinshun Wang 、     Chongqing Jiao     、      Lei Qi</h3>{%endifequal%}
+{% ifequal item.extra 30 %}<h3 class="people_group_end">members:Zhongdong Yin   、   Minxiao Han    、   ChunlinGuoChunyiGuo
+</h3>{%endifequal%}
+{% ifequal item.extra 40 %}<h3 class="people_group_end">{%endifequal%}
+{% ifequal item.extra 50 %}<h3 class="people_group_end">members:Zengping Wang  、   Shiwu Xiao         、             Jin Ma      、         Xin Ai         Chongru Liu      、      Lianguang LiuQihui Liu     、     Jianhua Zhang(M)              Gengyin Li    、      Yingyun Sun     、    Dongying Zhang    、    Liangrui Tang
+Ming Zhou</h3>{%endifequal%}
+{% ifequal item.extra 60 %}{%endifequal%}
+{% ifequal item.extra 70 %}<h3 class="people_group_end">members:Yunpeng Liu 、  Jiancheng Zhang   、 FangchengLvShuqiang Zhao   、    ZengqiangMiYongli Zhu</h3>{%endifequal%}
+
         {% endfor  %}
+
 <!--end base-->
+
+
 
 
         <ul class="pager" style="clear:both">    

@@ -1,6 +1,10 @@
 // JavaScript Document
 $(document).ready(function(){
 	
+	$("div.side").height(function()
+	{
+		return $("div.contents").height()+25;
+	})
 	//导航
 	$("li#people").bind("mouseover",function(){
 		$("ul.people").show();
@@ -24,7 +28,7 @@ $(document).ready(function(){
 	})
 	$("li#newsevents").bind("mouseover",function(){
 		$("ul.newsevents").show();
-		$("li#newsevents>a").css({"color":"#0083a9","font-weight":"bold"});
+		$("li#newsevents>a").css({"color":"#0083a9"});
 		
 	})
 	$("li#newsevents").bind("mouseout",function(){
@@ -42,7 +46,8 @@ $(document).ready(function(){
 	/*
 	*/
 	
-	
+
+
 	
 	
 	

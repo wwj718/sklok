@@ -38,7 +38,7 @@
           <img class="picture2"  src="/static/skl/img/banner/banner_02.png">
           <img class="picture1"  src="/static/skl/img/banner/banner_01.png">
         </div>
-<!--end slides-->          
+<!--end slides-->        
         
         <div class="cascade">
         	<p><a href="/">Home</a><a href="#"><span> > </span><a href="/people/categories/A">People</a><span> > 
@@ -68,20 +68,18 @@
         
         
         
-        <div class="committee">
-        	<p>Academic committee</p>
+        <div class="committee" id="wwj_committee">
+        	<p>Members</p>
             {% load mezzanine_tags %}
             
 <!--base-->
 <!--根据id不同决定类不同-->
         {% for item in list_items %}
-
-        {% ifequal item.id 1 %}<div id="director">
-        {% else %}
-        {% ifequal item.id 2 %}<div id="deputy">
-        {% else %}<div id="wwj_people">
-        {% endifequal %}
-        {% endifequal %}        
+        
+        
+        
+        
+        <div id="wwj_m_people">  
 
                 {% if item.img %}        
                 <img id="wwj_people" src="{{ MEDIA_URL }}{% thumbnail item.img 81 111 %}" style="max-width:81px;"  />

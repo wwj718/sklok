@@ -24,7 +24,7 @@ $(document).ready(function(){
 	})
 	$("li#newsevents").bind("mouseover",function(){
 		$("ul.newsevents").show();
-		$("li#newsevents>a").css({"color":"#0083a9","font-weight":"bold"});
+		$("li#newsevents>a").css({"color":"#0083a9","font-weight":"normal"});
 		
 	})
 	$("li#newsevents").bind("mouseout",function(){
@@ -43,11 +43,13 @@ $(document).ready(function(){
 	/*
 	*/
 	
+
+	//.side高度
 	
+
 	
-	
-	
-	
+
+
 	
 	
 	

@@ -23,4 +23,11 @@ def get_by_category(request,category): #包含分页功能
 
 
 	variables = RequestContext(request,{'categories':category,'list_items':list_items,'category':category})
-	return render_to_response(template,variables)    
+	return render_to_response(template,variables)  
+
+def getdetail(request,id):
+	list_items = People.objects.filter(id=id)
+	template="people_M_detail.html"
+
+	variables = RequestContext(request,{'list_items':list_items})
+	return render_to_response(template,variables)  

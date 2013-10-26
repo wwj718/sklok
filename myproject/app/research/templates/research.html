@@ -2,31 +2,35 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Introduction</title>
-<link href="/static/skl/style/Introduction.css" rel="stylesheet" type="text/css" />
+<title>Research</title>
+<link href="/static/skl/style/research.css" rel="stylesheet" type="text/css" />
 <link href="/static/skl/style/reset.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="/static/skl/JavaScript/jquery-1.10.1.min.js"></script>
-<script type="text/javascript" src="/static/skl/JavaScript/nav.js"></script>
+<script type="text/javascript" src="/static/skl/JavaScript/research.js"></script>
 <script type="text/javascript" src="/static/skl/JavaScript/home.js"></script>
 
 </head>
 
 <body>
+
+{% load pagination_tags %}
+{% autopaginate list_items 6 %}
 	<div class="content">
 		<div class="head">
         	<p>
                 <a href="http://202.204.74.139/">Chinese</a>
 
-            </p>   
-                     
+            </p>    
+                    
     {% include "includes/wwj_search.html" %}
-        
+         
+
         </div><!--head结束-->
         
 <!--nav-->
     {% include "includes/wwj_nav.html" %}
 <!--nav结束-->
-        
+
 <!--slides-->
         <div class="pictures">
           <img  src="/static/skl/img/banner/banner_01.png"><!--这张图片要和class="picture1"的一样-->
@@ -34,27 +38,38 @@
           <img class="picture2"  src="/static/skl/img/banner/banner_02.png">
           <img class="picture1"  src="/static/skl/img/banner/banner_01.png">
         </div>
-<!--end slides-->         
+<!--end slides-->          
+        
         <div class="cascade">
-        	<p><a href="/">Home</a><span> > Introduction</span></p>
+        	<p><a href="/">Home</a><a href="#"><span> > </span><a href="/research">Research</a><span> > Research Areas</span></p>
         </div>
+        
+        
         
         <div class="side">
-        	<img src="/static/skl/img/Introduction.jpg" />
+        	<img src="/static/skl/img/research.jpg" />
+            <a href="/research"><span>Research Areas</span><img src="/static/skl/img/arrowtip.jpg" /></a>
+            <a href="/research/1"><span>1</span></a>
+            <a href="/research/2"><span>2</span></a>
+            <a href="/research/3"><span>3</span></a>
         </div>
         
-        <div class="text">
-            {% load mezzanine_tags %}
-        	<p id="tile">
-              {% editable page.richtextpage.title %}
-              {{ page.richtextpage.title|richtext_filters|safe }}
-              {% endeditable %}
-
-            </p>
-            {% editable page.richtextpage.content %}
-            {{ page.richtextpage.content|richtext_filters|safe }}
-            {% endeditable %}
+<!--base-->    
+{% load mezzanine_tags %}
+{%for item in list_items%}
+        <div id="wwj_text_research" class="characteristics">
+        	<p id="title">{{item.title}}</p>
+            <p>{{item.summary}}</p>
+            <p id="text">{{ item.content|slice:":200"|richtext_filters|safe }}</p>
+            <p ><a style="left: 0px" href="/research/{{item.id}}">read more>></a></p>   
         </div>
+<!--end base-->    
+{%endfor%}
+
+        
+        <ul class="pager" style="clear:both">    
+            {% paginate %}
+        </ul>
         
                     	
     </div><!--content结束-->
@@ -62,12 +77,5 @@
     	<p>Copyright 2013 State Key Laboratory Of Alternate Electrical Power System WithRenewable Energy Sources（NCEPU） All Rights Reserved.<br/>
         <p>Technical Support:Dreamtech Studio</p>
     </div>    
-
-{% if user.is_staff %}
-    <script src="{{ STATIC_URL }}mezzanine/js/jquery-1.7.1.min.js">
-        jQuery.noConflict();
-    </script>
-{% endif %}
-{% editable_loader %}  
 </body>
 </html>

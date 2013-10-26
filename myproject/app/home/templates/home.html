@@ -3,8 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Home</title>
-<link href="/static/skl/style/home.css" rel="stylesheet" type="text/css" />
 <link href="/static/skl/style/reset.css" rel="stylesheet" type="text/css" />
+<link href="/static/skl/style/home.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="/static/skl/JavaScript/jquery-1.10.1.min.js"></script>
 <script type="text/javascript" src="/static/skl/JavaScript/home.js"></script>
 </head>
@@ -13,9 +13,7 @@
 	<div class="content">
 		<div class="head">
         	<p>
-            	<a href="#">NCEPU Home</a>
-                <i></i>
-                <a href="#">Chinese</a>
+                <a href="http://202.204.74.139/">Chinese</a>
             </p>            
 
     {% include "includes/wwj_search.html" %}
@@ -31,16 +29,19 @@
         	{% if home.img1 %}<img src="{{ MEDIA_URL }}{% thumbnail home.img1 686 268 %}" />{% endif %}<!--这张图片要和class="picture1"的一样-->
         	{% if home.img4 %}<img class="picture4" src="{{ MEDIA_URL }}{% thumbnail home.img4 686 268 %}" />{% endif %}
         	{% if home.img3 %}<img class="picture3" src="{{ MEDIA_URL }}{% thumbnail home.img3 686 268 %}" />{% endif %}
-        	{% if home.img2 %}<img class="picture2" src="/{{ MEDIA_URL }}{% thumbnail home.img2 686 268 %}" />{% endif %}
-        	{% if home.img1 %}<img class="picture1" src="{{ MEDIA_URL }}{% thumbnail home.img1 686 268 %}" />{% endif %}
-        	
-            
-            
-            
-            
+        	{% if home.img2 %}<img class="picture2" src="{{ MEDIA_URL }}{% thumbnail home.img2 686 268 %}" />{% endif %}
+        	{% if home.img1 %}<img class="picture1" src="{{ MEDIA_URL }}{% thumbnail home.img1 686 268 %}" />{% endif %}            
         </div>
+        
         <div class="multiplesources">
-        	<img src="/static/skl/img/multiplesources.jpg" />
+            <div class="pictures">
+            <img src="/static/skl/img/multiplesources.jpg" />
+            <img class="picture3" src="/static/skl/img/safety.jpg" />
+            <img class="picture2" src="/static/skl/img/source.png" />
+            <img class="picture1" src="/static/skl/img/multiplesources.jpg" />
+
+            </div>
+            
         </div>
         
         <div class="laboratory">
@@ -49,8 +50,8 @@
             <a href="/newsevents/{{home.news.id}}">READ >></a>
         </div><!--"laboratory"结束-->
         <div class="announcement">
-        	<p>{{home.announcement1}}</p>
-            <p>{{home.announcement2}}</p>
+        	<p><a href="/announcement1">{{home.announcement1}}</a></p>
+           <p><a href="/announcement2">{{home.announcement2}}</a></p>
         </div><!--announcement结束-->
                     	
     </div><!--content结束-->

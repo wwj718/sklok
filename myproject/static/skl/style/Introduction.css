@@ -59,61 +59,7 @@
 	border:hidden;
 	background:url(../img/magnifier.jpg) no-repeat;	
 }
-.nav{
-	position:relative;
-}
-.nav li{
-	float:left;
-	color:#000;
-	font-size:14px;
-	padding:9px 25px;
-}
-.nav li a{
-	color:#000;
-	display:block;
-	text-align:center;
-}
-.nav li a:hover{
-	color:#0083a9;
-	font-weight:bold;
-}
 
-.nav i{
-	float:left;
-	width: 1px;
-	height: 11px;
-	margin:10px 0;
-	background:#bdbdbd;
-}
-.nav li ul{
-
-	display:none;
-	position:absolute;
-	top:32px;
-	background:#FFF;
-	z-index:1;
-}
-.nav li ul li{
-	width:250px;
-	color:#000;
-	font-size:14px;
-	margin:0;
-	padding:0px; 
-	
-}
-.nav li ul li a{
-	padding:5px 0;
-	text-align:left;
-	color:#000;
-	display:block;
-	padding:10px 0 6px 20px;
-	background:url(../img/menubackground.jpg) left no-repeat;
-}
-.nav li ul li a:hover{
-	background:url(../img/menuhover.jpg) left no-repeat;
-	color:#0083a9;
-	font-weight:bold;
-}
 .people{
 	left:221px;
 	width:250px;
@@ -175,6 +121,27 @@
 	background:#89c7d9;
 	float:left;
 }
+
+
+/*  wwj添加 */
+.side a{
+	color:#FFF;
+	line-height:35px;
+	display:block;
+	padding:0 0px 1px 44px;
+	
+}
+.side a span{
+	width:190px;
+	float:left;
+	clear:both;
+}
+.side a img{
+	float:left;
+	padding:12px 0 0 0;
+}
+/*  end wwj添加 */
+
 .text{
 	width:640px;
 	float:left;
@@ -221,4 +188,11 @@
 	color:#FFF;
 	font-size:12px;
 	text-align:center;
+}
+
+
+#research_side{
+
+height:4200px;
+
 }

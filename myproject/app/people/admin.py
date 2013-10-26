@@ -3,7 +3,7 @@ from models import People
 
 
 class PeopleAdmin(admin.ModelAdmin):
-	list_display = ('categories', 'content', 'img','pub_date')
+	list_display = ('categories', 'content', 'img','extra','pub_date')
 
 
 admin.site.register(People,PeopleAdmin)

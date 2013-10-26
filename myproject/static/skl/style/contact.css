@@ -59,6 +59,7 @@
 	border:hidden;
 	background:url(../img/magnifier.jpg) no-repeat;	
 }
+/*
 .nav{
 	position:relative;
 }
@@ -114,6 +115,7 @@
 	color:#0083a9;
 	font-weight:bold;
 }
+*/
 .people{
 	left:221px;
 	width:250px;
@@ -170,7 +172,7 @@
 }
 .side{
 	width:287px;
-	height:300px;
+	height:450px;
 	background:url(../img/sidebackground.jpg);
 	float:left;
 }
@@ -196,7 +198,6 @@
 
 .text{
 	width:620px;
-	border-bottom:#b9b9b9 solid 4px;
 	float:left;
 	padding:20px 0px 0px 0px;
 	margin:0 0 0px 40px;
@@ -237,10 +238,15 @@
 	background:#0083a9;
 	
 	padding:8px 0;
+
 }
 .copyright p{
 	line-height:16px;
 	color:#FFF;
 	font-size:12px;
 	text-align:center;
+
+}
+
+.text{min-height: 400px;
 }
