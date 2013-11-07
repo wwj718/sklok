@@ -7,8 +7,15 @@ class FacCategories(models.Model):
     def __unicode__(self):
         return self.name
 
+	class Meta:
+		verbose_name_plural = "FacCategories"
+
 class Facilities(models.Model):
 	categories = models.ForeignKey(FacCategories)   
 	name = models.CharField(max_length=100,null=True)
 	img = models.FileField(upload_to="Facilities", blank=True, help_text="235*154pix")
 	pub_date = models.DateTimeField(auto_now_add=True,blank=True,null=True)
+
+
+	class Meta:
+		verbose_name_plural = "Facilities"

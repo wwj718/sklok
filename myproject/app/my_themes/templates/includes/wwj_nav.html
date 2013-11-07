@@ -22,7 +22,8 @@
             		</ul>
                 </li><i></i>
                 <li id="publications">
-                	<a href="/publications">Publications</a>
+                	{# <a href="/publications">Publications</a> #}
+                    <a href="#">Publications</a>
                 </li><i></i>
                 <li id="newsevents">
                 	<a href="/newsevents/categories/news/">News & Events</a>
@@ -34,12 +35,11 @@
                 <li id="facilities">
                 	<a href="/facilities">Facilities</a>
                     <ul class="facilities">
-
+                    <li>
                     {% for item in categories_list %}
-                    <li><a href="/facilities/categories/{{item.name}}"><span>{{item.name}}</span></li>
-
+                    <a href="/facilities/categories/{{item.name}}"><span>{{item.name}}</span></a>
                     {% endfor %}
-                    
+                    </li>
             		</ul>
                 </li><i></i>
                 <li id="contact">

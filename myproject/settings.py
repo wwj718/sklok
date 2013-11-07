@@ -255,12 +255,14 @@ INSTALLED_APPS = (
 #myapp
     
     'pagination',
+    
     'app.facilities',
     'app.publications',
     'app.people',
     'app.news',
     'app.home',
     'app.research',
+    'app.announcement',
 
 )
 

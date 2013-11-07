@@ -12,9 +12,8 @@
 <body>
 	<div class="content">
 		<div class="head">
-        	<p>
-                <a href="http://202.204.74.139/">Chinese</a>
-            </p>            
+
+        	{% include "includes/chinese_link.html" %}
 
     {% include "includes/wwj_search.html" %}
 
@@ -45,13 +44,20 @@
         </div>
         
         <div class="laboratory">
+            {%if home.news_img%}
+            <img src="{{ MEDIA_URL }}{% thumbnail home.news_img 247 247 %}" />
+
+            {% else %}
         	<img src="/static/skl/img/circle.png" />
-            <p>{{home.news.summary}}</p>
+            
+            {%endif%}   
+
+            <p>{{home.news.summary|slice:":150"}}...</p>
             <a href="/newsevents/{{home.news.id}}">READ >></a>
         </div><!--"laboratory"结束-->
         <div class="announcement">
-        	<p><a href="/announcement1">{{home.announcement1}}</a></p>
-           <p><a href="/announcement2">{{home.announcement2}}</a></p>
+        	<p><a href="/announcement/{{home.announcement1.id}}">{{home.announcement1.title}}</a></p>
+           <p><a href="/announcement/{{home.announcement1.id}}">{{home.announcement2.title}}</a></p>
         </div><!--announcement结束-->
                     	
     </div><!--content结束-->

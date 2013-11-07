@@ -29,7 +29,7 @@ if (typeof tinyMCE != 'undefined') {
         editor_deselector : "mceNoEditor",
 
         // general settings
-        width: '700',
+        width: '70',
         height: '350',
         indentation : '10px',
         fix_list_elements : true,

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Facilities,FacCategories
+from models import Facilities#,FacCategories
 
 
 class FacilitiesAdmin(admin.ModelAdmin):
@@ -7,4 +7,7 @@ class FacilitiesAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Facilities,FacilitiesAdmin)
-admin.site.register(FacCategories)
+# admin.site.register(FacCategories)
+
+#http://202.204.65.101/cms/
+#http://laps.ncepu.edu.cn/
